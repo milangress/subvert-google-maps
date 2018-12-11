@@ -38,18 +38,21 @@ function sample(arr){
         console.log('Maps: ' + randomUrl(channelArray))
 
 
-        var moonMapType = new google.maps.ImageMapType({
-            getTileUrl: () => {
-                return randomUrl(channelArray)
-            },
-            tileSize: new google.maps.Size(220, 220),
-            maxZoom: 8,
-            minZoom: 0,
-            name: 'Google Maps'
-        });
+        window.setTimeout(function () {
 
-        map.mapTypes.set('moon', moonMapType);
-        map.setMapTypeId('moon');
+            let moonMapType = new google.maps.ImageMapType({
+                getTileUrl: () => {
+                    return randomUrl(channelArray)
+                },
+                tileSize: new google.maps.Size(220, 220),
+                maxZoom: 8,
+                minZoom: 0,
+                name: 'Google Maps'
+            });
+
+            map.mapTypes.set('moon', moonMapType);
+            map.setMapTypeId('moon');
+        }, 2000)
 
     } catch (e) {
         console.log(e)
