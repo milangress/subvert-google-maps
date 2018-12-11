@@ -21,47 +21,8 @@
 
 <div id="map"></div>
 
-<script>
-    var TILE_URL = 'http://c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg';
+<script src="app.js"></script>
 
-    var map;
-    var mapEl;
-    var layer;
-    var layerID = 'my-custom-layer';
-
-    window.initMap = function() {
-        // Select the element with id="map".
-        mapEl = document.querySelector('#map');
-
-        // Create a new map.
-        map = new google.maps.Map(mapEl, {
-            center: new google.maps.LatLng(39.8282, -98.5795),
-            zoom: 4
-        });
-
-        // Create a tile layer, configured to fetch tiles from TILE_URL.
-        layer = new google.maps.ImageMapType({
-            name: layerID,
-            getTileUrl: function(coord, zoom) {
-                console.log(coord);
-                var url = TILE_URL
-                    .replace('{x}', coord.x)
-                    .replace('{y}', coord.y)
-                    .replace('{z}', zoom);
-                return url;
-            },
-            tileSize: new google.maps.Size(256, 256),
-            minZoom: 1,
-            maxZoom: 20
-        });
-
-        // Apply the new tile layer to the map.
-        map.mapTypes.set(layerID, layer);
-        map.setMapTypeId(layerID);
-    };
-</script>
-
-<!-- NOTE: The 'key' parameter should be replaced with your Google Maps API Key. -->
 <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyChN45wIpj80HSpduSA10gqqvnCIGyHbx8"></script>
 
 </body>
