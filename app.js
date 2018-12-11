@@ -1,4 +1,4 @@
-let baseUrl = 'http://api.are.na/v2/'
+let baseUrl = 'https://api.are.na/v2/'
 let channelArray
 let map
 
