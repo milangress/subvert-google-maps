@@ -37,6 +37,7 @@ function sample(arr){
         console.log('try channel Array')
         console.log('Maps: ' + randomUrl(channelArray))
 
+
         var moonMapType = new google.maps.ImageMapType({
             getTileUrl: () => {
                 return randomUrl(channelArray)
@@ -44,7 +45,7 @@ function sample(arr){
             tileSize: new google.maps.Size(220, 220),
             maxZoom: 8,
             minZoom: 0,
-            name: 'Subverting'
+            name: 'Google Maps'
         });
 
         map.mapTypes.set('moon', moonMapType);
